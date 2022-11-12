@@ -2,12 +2,15 @@
   "name": "storefront-backend-fwd-nanodegree",
   "version": "1.0.0",
   "description": "storefront backend project for advanced fwd nanodegree",
-  "main": "server.ts",
+  "main": "app.ts",
   "scripts": {
     "lint:fix": "eslint src/**/*.{ts,json} --fix",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --config .prettierrc --write ./**/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,7 @@
     "@types/express": "^4.17.14",
     "@types/jasmine": "^4.3.0",
     "@types/node": "^18.11.9",
+    "@types/pg": "^8.6.5",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "body-parser": "^1.20.1",
@@ -35,6 +39,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "jasmine": "^4.5.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "supertest": "^6.3.1",
