@@ -6,3 +6,6 @@ CREATE TABLE users(
     username varchar(100),
     password varchar(100)
 );
+
+INSERT INTO users(firstname, lastname, username, password)
+VALUES('admin', 'admin', 'admin', '$2a$10$35mAXwKrU0NwECHjiyzsEOiqPBdViNqkMVrMyU1/6bsNMS0sn6Z4e');
