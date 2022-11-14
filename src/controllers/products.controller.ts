@@ -1,12 +1,13 @@
 import { Request, Response } from "express";
-import app from "../app";
+import express from 'express';
 import { ProductInfo } from "../dtos/product-info";
 import { GeneralResponse, GeneralResponseList } from "../dtos/responses/general-responses";
+import authorized from "../middlewares/check-jwt";
 import { Product } from "../models/product";
 import { ProductsService } from "../services/product.service";
 
 const productsService = new ProductsService();
-app.get('/products', async (req: Request, res: Response) => {
+const index = async (req: Request, res: Response) => {
     try{
         const products = await productsService.index();
         if(!products){
@@ -23,9 +24,9 @@ app.get('/products', async (req: Request, res: Response) => {
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
 
-app.get('/products/:id', async (req: Request, res: Response) => {
+const show =  async (req: Request, res: Response) => {
     try{
         const {id} = req.route;
         const product = await productsService.show(id);
@@ -42,12 +43,15 @@ app.get('/products/:id', async (req: Request, res: Response) => {
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
 
-app.post('/products', async (req: Request, res: Response) => {
+const create = async (req: Request, res: Response) => {
     try{
         const {productDto} = req.body;
         const product = Product.ConvertFromProductInfo(productDto);
+        if(!product.validateEntity()){
+            return res.status(400).send('Wrong Values');
+        }
 
         const productReturned = await productsService.create(product);
         if(!productReturned){
@@ -62,4 +66,12 @@ app.post('/products', async (req: Request, res: Response) => {
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
+
+const products_routes = (app: express.Application) => {
+    app.get('/products', index),
+    app.get('/products/:id', show),
+    app.post('/products', authorized, create)
+};
+
+export default products_routes;

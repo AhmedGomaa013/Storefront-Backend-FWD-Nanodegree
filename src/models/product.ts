@@ -5,6 +5,17 @@ export class Product {
   name: string;
   price: number;
 
+  validateEntity(): boolean{
+    if(this.name == null){
+      return false;
+    }
+
+    if(this.price == null || isNaN(Number(this.price))){
+      return false;
+    }
+
+    return true;
+  }
   static ConvertToProductInfo(source: Product): ProductInfo{
     const result = new ProductInfo();
     
