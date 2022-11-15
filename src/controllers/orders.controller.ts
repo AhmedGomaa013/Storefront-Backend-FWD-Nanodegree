@@ -1,38 +1,47 @@
-import { Request, Response } from "express";
-import app from "../app";
+import express, { Request, Response } from "express";
+import authorized from "../middlewares/check-jwt";
 
-app.get('/orders/active', (req: Request, res: Response) => {
+const getActiveOrders =  (req: Request, res: Response) => {
     try{
 
     }
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
 
-app.get('/orders/completed', (req: Request, res: Response) => {
+const getClosedOrders =  (req: Request, res: Response) => {
     try{
 
     }
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
 
-app.post('/orders', (req: Request, res: Response) => {
+ const placeOrders = (req: Request, res: Response) => {
     try{
 
     }
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
 
-app.put('/orders', (req: Request, res: Response) => {
+const updateOrder =  (req: Request, res: Response) => {
     try{
 
     }
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
+
+const orders_routes = (app: express.Application) => {
+    app.get('/orders/active', authorized, getActiveOrders),
+    app.get('/orders/completed', authorized, getClosedOrders),
+    app.post('/orders', authorized, placeOrders),
+    app.put('/orders', authorized, updateOrder)
+};
+
+export default orders_routes;
