@@ -1,4 +1,4 @@
-export type Order = {
-  id: number;
-  status: string;
-};
+export interface Order {
+  id: number
+  status: string
+}

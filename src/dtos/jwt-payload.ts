@@ -1,5 +1,5 @@
-import { User } from "../models/user";
+import { User } from '../models/user'
 
-export class JwtPayload{
-    user: User;
+export class JwtPayload {
+  user: User
 }

@@ -1,6 +1,5 @@
-export class ProductInfo  {
-    id: number;
-    name: string;
-    price: number;
-  }
-  
+export class ProductInfo {
+  id: number
+  name: string
+  price: number
+}

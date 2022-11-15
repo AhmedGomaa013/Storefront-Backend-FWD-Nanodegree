@@ -7,7 +7,8 @@
     "lint:fix": "eslint src/**/*.{ts,json} --fix",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --config .prettierrc --write ./**/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "npm run lint:fix && npm run build",
+    "test": "set ENV=test db-migrate --env test up && jasmine && db-migrate db:drop test",
     "build": "npx tsc",
     "prestart": "npm run build",
     "start": "node dist/app.js"
