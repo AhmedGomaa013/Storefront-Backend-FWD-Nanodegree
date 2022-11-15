@@ -1,38 +1,113 @@
-import { Request, Response } from "express";
-import app from "../app";
+import express, { Request, Response } from "express";
+import { GeneralResponse, GeneralResponseList } from "../dtos/responses/general-responses";
+import { UserInfo } from "../dtos/user-info";
+import authorized from "../middlewares/check-jwt";
+import { User } from "../models/user";
+import { UsersService } from "../services/users.services";
 
-app.get('/users', (req: Request, res: Response) => {
+const usersService = new UsersService();
+const index = async (req: Request, res: Response) => {
     try{
+        const users = await usersService.index();
+        if(!users){
+            return res.status(400).send('Error');
+        }
+
+        const usersInfo = User.ConvertToUserInfoList(users);
+
+        const response = new GeneralResponseList<UserInfo>();
+        response.data = usersInfo;
+        response.count = usersInfo.length;
+
+        return res.json(response);
 
     }
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
 
-app.get('/users/:id', (req: Request, res: Response) => {
+const show = async (req: Request, res: Response) => {
     try{
-
+        const {id} = req.params;
+        if(id === '' || isNaN(Number(id))){
+            return res.status(400).send('wrong parameters');
+        }
+        const user = await usersService.show(Number(id));
+        if(!user){
+            return res.status(400).send('Error');
+        }
+        const userDto = User.ConvertToUserInfo(user);
+        
+        const response = new GeneralResponse<UserInfo>();
+        response.data = userDto;
+        
+        res.json(response);
     }
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
 
-app.post('/users/create', (req: Request, res: Response) => {
+const create = async (req: Request, res: Response) => {
     try{
+        const userDto = new UserInfo();
+        userDto.username = req.body.username;
+        userDto.password = req.body.password;
+        userDto.firstname = req.body.firstname;
+        userDto.lastname = req.body.lastname;
+        const user = User.ConvertFromUserInfo(userDto);
+        if(!user.validateEntity()){
+            return res.status(400).send('Wrong Values');
+        }
 
+        const userReturned = await usersService.create(user);
+        if(!userReturned){
+            return res.status(400).send('Error');
+        }
+        
+        const response = new GeneralResponse<UserInfo>();
+        response.data = User.ConvertToUserInfo(userReturned);
+        
+        res.json(response);
     }
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
 
-app.post('/users/authenticate', (req: Request, res: Response) => {
+const authenticate =  async (req: Request, res: Response) => {
     try{
+        const userDto = new UserInfo();
+        userDto.username = req.body.username;
+        userDto.password = req.body.password;
 
+        const user = User.ConvertFromUserInfo(userDto);
+        if(!user.validateEntity()){
+            return res.status(400).send('Wrong Values');
+        }
+
+        const tokenReturned = await usersService.authenticate(user);
+        if(!tokenReturned){
+            return res.status(400).send('Error');
+        }
+        else if(isNaN(Number(tokenReturned))){
+            return res.status(404).send(tokenReturned);
+        }
+        
+        
+        return res.send(tokenReturned);
     }
     catch(err){
         return res.status(400).send('Error');
     }
-});
+};
+
+const users_routes = (app: express.Application) => {
+    app.get('/users', authorized, index),
+    app.get('/users/:id', authorized, show),
+    app.post('/users/create', create),
+    app.post('/users/authenticate', authenticate)
+};
+
+export default users_routes;
