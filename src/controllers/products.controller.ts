@@ -28,8 +28,11 @@ const index = async (req: Request, res: Response) => {
 
 const show =  async (req: Request, res: Response) => {
     try{
-        const {id} = req.route;
-        const product = await productsService.show(id);
+        const {id} = req.params;
+        if(id === '' || isNaN(Number(id))){
+            return res.status(400).send('wrong parameters');
+        }
+        const product = await productsService.show(Number(id));
         if(!product){
             return res.status(400).send('Error');
         }
@@ -47,7 +50,9 @@ const show =  async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     try{
-        const {productDto} = req.body;
+        const productDto = new ProductInfo();
+        productDto.name = req.body.name;
+        productDto.price = req.body.price;
         const product = Product.ConvertFromProductInfo(productDto);
         if(!product.validateEntity()){
             return res.status(400).send('Wrong Values');
@@ -64,6 +69,7 @@ const create = async (req: Request, res: Response) => {
         res.json(response);
     }
     catch(err){
+        console.log(err);
         return res.status(400).send('Error');
     }
 };
