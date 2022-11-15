@@ -50,9 +50,7 @@ const show =  async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     try{
-        const productDto = new ProductInfo();
-        productDto.name = req.body.name;
-        productDto.price = req.body.price;
+        const productDto = JSON.parse(JSON.stringify(req.body)) as ProductInfo;
         const product = Product.ConvertFromProductInfo(productDto);
         if(!product.validateEntity()){
             return res.status(400).send('Wrong Values');

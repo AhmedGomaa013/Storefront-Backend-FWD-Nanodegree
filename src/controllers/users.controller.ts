@@ -51,11 +51,7 @@ const show = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     try{
-        const userDto = new UserInfo();
-        userDto.username = req.body.username;
-        userDto.password = req.body.password;
-        userDto.firstname = req.body.firstname;
-        userDto.lastname = req.body.lastname;
+        const userDto = JSON.parse(JSON.stringify(req.body)) as UserInfo;
         const user = User.ConvertFromUserInfo(userDto);
         if(!user.validateEntity()){
             return res.status(400).send('Wrong Values');
@@ -78,9 +74,7 @@ const create = async (req: Request, res: Response) => {
 
 const authenticate =  async (req: Request, res: Response) => {
     try{
-        const userDto = new UserInfo();
-        userDto.username = req.body.username;
-        userDto.password = req.body.password;
+        const userDto = JSON.parse(JSON.stringify(req.body)) as UserInfo;
 
         const user = User.ConvertFromUserInfo(userDto);
         if(!user.validateEntity()){
