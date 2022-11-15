@@ -60,7 +60,7 @@ export class UsersService{
             
             const compareResult = await bcrypt.compare(user.password + pepper, userDb.password);
             if(compareResult){
-                const token = jwt.sign({user:user}, process.env.JWT_SECRET as string);
+                const token = jwt.sign({user:userDb}, process.env.JWT_SECRET as string);
                 return token;
             }
             return 'wrong password';
