@@ -80,10 +80,10 @@ const authenticate = async (req: Request, res: Response): Promise<any> => {
     const tokenReturned = await usersService.authenticate(user)
     if (tokenReturned == null) {
       return res.status(400).send('Error')
-    } else if (isNaN(Number(tokenReturned))) {
+    } else if (tokenReturned === '404') {
       return res.status(404).send(tokenReturned)
     }
-
+    res.set('Accept', 'application/json')
     return res.send(tokenReturned)
   } catch (err) {
     return res.status(400).send('Error')

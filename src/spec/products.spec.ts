@@ -2,7 +2,6 @@ import request from 'supertest'
 import app from '../app'
 import { ProductInfo } from '../dtos/product-info'
 import { GeneralResponse, GeneralResponseList } from '../dtos/responses/general-responses'
-import { Product } from '../models/product'
 import { User } from '../models/user'
 import { UsersService } from '../services/users.services'
 
@@ -21,7 +20,7 @@ describe('Products APIs', () => {
   })
 
   it('should create a new product', async () => {
-    const product = new Product()
+    const product = new ProductInfo()
     product.name = 'TV'
     product.price = 10000
     const res = await request(app).post('/products')
@@ -35,7 +34,7 @@ describe('Products APIs', () => {
   })
 
   it('should return 401', async () => {
-    const product = new Product()
+    const product = new ProductInfo()
     product.name = 'TV'
     product.price = 10000
     await request(app).post('/products')
@@ -44,7 +43,7 @@ describe('Products APIs', () => {
   })
 
   it('should return specific product', async () => {
-    const product = new Product()
+    const product = new ProductInfo()
     product.name = 'TV'
     product.price = 10000
     let res = await request(app).post('/products')
