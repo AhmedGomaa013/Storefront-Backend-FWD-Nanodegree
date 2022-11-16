@@ -4,5 +4,5 @@ export class OrderDetails {
   id: number
   status: string
   totalPrice: number
-  products: ProductOrderInfo[]
+  products: ProductOrderInfo[] = []
 }

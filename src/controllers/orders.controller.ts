@@ -56,7 +56,7 @@ const placeOrders = async (req: Request, res: Response): Promise<any> => {
       return res.status(400).send('Error')
     }
 
-    const response = new GeneralResponse()
+    const response = new GeneralResponse<OrderDetails>()
     response.data = returedOrder
 
     return res.json(response)
@@ -72,7 +72,7 @@ const updateOrder = async (req: Request, res: Response): Promise<any> => {
     const payload = jwt.verify(token as string, process.env.JWT_SECRET as jwt.Secret) as JwtPayload
     await ordersService.updateExistingOrder(payload.user.id, order)
 
-    return res.status(200).send('')
+    return res.status(200).send('updated')
   } catch (err) {
     return res.status(400).send('Error')
   }
