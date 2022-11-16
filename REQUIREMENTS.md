@@ -5,21 +5,21 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products
-- Index 
-- Show
-- Create [token required]
+- Index '/products' get
+- Show '/products/:id' get
+- Create '/products' post [token required]
 
 #### Users
-- Index [token required]
-- Show [token required]
-- Create New
-- Authenticate
+- Index '/users' get [token required]
+- Show '/users/:id' get [token required]
+- Create New '/users/create' post
+- Authenticate '/users/authenticate' post
 
 #### Orders
-- Get Active Orders by user (args: user id)[token required]
-- Get Completed Orders by user (args: user id)[token required]
-- Create New Order[token required]
-- Update Existing Order[token required]
+- Get Active Orders by user '/orders/active' get [token required]
+- Get Completed Orders by user '/orders/completed' get [token required]
+- Create New Order '/orders' post [token required]
+- Update Existing Order '/orders' put [token required]
 
 ## Data Shapes
 #### Product
