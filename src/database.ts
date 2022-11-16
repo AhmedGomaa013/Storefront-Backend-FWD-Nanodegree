@@ -12,7 +12,7 @@ const {
 } = process.env
 
 let client: Pool
-if (ENV === 'test') {
+if (ENV as string === 'test') {
   client = new Pool({
     host: POSTGRES_HOST,
     database: POSTGRES_DB_TEST,
