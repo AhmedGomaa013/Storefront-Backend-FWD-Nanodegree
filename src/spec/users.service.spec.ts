@@ -1,7 +1,7 @@
 import { User } from '../models/user'
 import { UsersService } from '../services/users.services'
 
-describe('Users Servie', () => {
+describe('Users Service', () => {
   const usersService = new UsersService()
   it('should create new user', async () => {
     const user = new User()

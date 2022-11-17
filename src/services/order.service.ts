@@ -92,7 +92,7 @@ export class OrdersService {
     }
   }
 
-  async updateExistingOrder (userId: number, order: OrderDetails): Promise<any | null> {
+  async updateExistingOrder (userId: number, order: OrderDetails): Promise<boolean | null> {
     try {
       const conn = await client.connect()
       let sql = 'UPDATE orders set status = $1 WHERE id = $2 and user_id = $3 RETURNING*;'
@@ -111,8 +111,9 @@ export class OrdersService {
       }))
 
       conn.release()
+      return true
     } catch (err) {
-      return null
+      return false
     }
   }
 
