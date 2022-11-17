@@ -66,14 +66,15 @@ export class UsersService {
     }
   }
 
-  async deleteAll (): Promise<any | null> {
+  async deleteAll (): Promise<boolean> {
     try {
       const conn = await client.connect()
       const sql = 'DELETE FROM users;'
       await conn.query(sql)
       conn.release()
+      return true
     } catch (err) {
-      return null
+      return false
     }
   }
 }

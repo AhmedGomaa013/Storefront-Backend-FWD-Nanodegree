@@ -29,7 +29,7 @@ describe('Products Services', () => {
     expect(returnProduct?.price).toEqual(product.price)
   })
 
-  it('should create and return new product', async () => {
+  it('should create and return list of products', async () => {
     const product = new Product()
     product.name = 'TV'
     product.price = 10000
