@@ -4,6 +4,7 @@ import { Pool } from 'pg'
 dotenv.config()
 const {
   POSTGRES_HOST,
+  POSTGRES_PORT,
   POSTGRES_DB,
   POSTGRES_DB_TEST,
   POSTGRES_USER,
@@ -15,6 +16,7 @@ let client: Pool
 if (ENV as string === 'test') {
   client = new Pool({
     host: POSTGRES_HOST,
+    port: Number(POSTGRES_PORT),
     database: POSTGRES_DB_TEST,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD
@@ -22,6 +24,7 @@ if (ENV as string === 'test') {
 } else {
   client = new Pool({
     host: POSTGRES_HOST,
+    port: Number(POSTGRES_PORT),
     database: POSTGRES_DB,
     user: POSTGRES_USER,
     password: POSTGRES_PASSWORD
