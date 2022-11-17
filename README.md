@@ -8,7 +8,19 @@ An backend project for stores that contains APIs to create users and authenticat
 - Update the dependencies using 'npm i'
 - Download postgresdb database in your machine.
 - create **two(2)** empty databases: one for development and the other for testing.
-- Update Environment file **.env** with the names of databases, host, database user and database password.
+- Update **database.json** file with the names of driver, host, port database, user and password in two modes.
+- Create **.env** file with the follwowing environment variables:
+    - POSTGRES_HOST: has the host address for the database.
+    - POSTGRES_PORT: has the port number of the postgresql database. If you are using the default port set it to **5432**
+    - POSTGRES_DB: has the name of database in development mode.
+    - POSTGRES_DB_TEST: has the name of database in test mode.
+    - POSTGRES_USER: has the name of database user.
+    - POSTGRES_PASSWORD: has the password for database user.
+    - PORT: has the port number to run the server.
+    - ENV: has the environment you choose you run application on. Set it to **dev** as default value.
+    - BCRYPT_PASSWORD: has the encrption key for encrypting passwords.
+    - SALT_ROUNDS: has the number of round for encrypting passwords. It has to be a number.
+    - JWT_SECRET: has the JWT secret.
 - Complete database setup using **'db-migrate up'**
 - Start the node server using **'npm run start'**
 - To build the application use **'npm run build'**
