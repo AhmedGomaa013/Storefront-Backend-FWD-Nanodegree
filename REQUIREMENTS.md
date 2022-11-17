@@ -23,25 +23,35 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## Data Shapes
 #### Product
--  id
-- name
-- price
+Column | Type | Is Primary Key | Is Foreign Key
+--- | --- | --- | ---
+id | integer | true | false
+name | varchar(100) | false | false
+price | float(10) | false | false
 
 #### User
-- id
-- firstName
-- lastName
-- username
-- password
+Column | Type | Is Primary Key | Is Foreign Key
+--- | --- | --- | ---
+id | integer | true | false
+firstName | varchar(100) | false | false
+lastName | varchar(100) | false | false
+username | varchar(100) | false | false
+password | varchar(100) | false | false
+
 
 #### Orders
-- id
-- user_id
-- status of order (ACTIVE or COMPLETED)
+Column | Type | Is Primary Key | Is Foreign Key
+--- | --- | --- | ---
+id | integer | true | false
+user_id | bigint | false | true
+status of order | varchar(10) | false | false
+
 
 #### Products_Orders
-- id
-- product_id
-- order_id
-- quantity
+Column | Type | Is Primary Key | Is Foreign Key
+--- | --- | --- | ---
+id | integer | true | false
+product_id | bigint | false | true
+order_id | bigint | false | true
+quantity | integer | false | false
 
