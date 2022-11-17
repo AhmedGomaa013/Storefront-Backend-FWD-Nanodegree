@@ -9,7 +9,7 @@ import { User } from '../models/user'
 import { ProductsService } from '../services/product.service'
 import { UsersService } from '../services/users.services'
 
-describe('Orders APIs', () => {
+describe('Orders APIs Test Cases', () => {
   let token = ''
   let globalProduct: Product
   beforeAll(async () => {

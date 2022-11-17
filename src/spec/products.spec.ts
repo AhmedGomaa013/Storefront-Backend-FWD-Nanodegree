@@ -5,7 +5,7 @@ import { GeneralResponse, GeneralResponseList } from '../dtos/responses/general-
 import { User } from '../models/user'
 import { UsersService } from '../services/users.services'
 
-describe('Products APIs', () => {
+describe('Products APIs Test Cases', () => {
   let token = ''
   beforeAll(async () => {
     const usersService = new UsersService()

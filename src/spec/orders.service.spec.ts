@@ -6,7 +6,7 @@ import { OrdersService } from '../services/order.service'
 import { ProductsService } from '../services/product.service'
 import { UsersService } from '../services/users.services'
 
-describe('Orders Service', () => {
+describe('Orders Service Test Cases', () => {
   let user: User
   let globalProduct: Product
   const ordersService = new OrdersService()

@@ -3,7 +3,7 @@ import app from '../app'
 import { GeneralResponse, GeneralResponseList } from '../dtos/responses/general-responses'
 import { UserInfo } from '../dtos/user-info'
 
-describe('Users APIs', () => {
+describe('Users APIs Test Cases', () => {
   it('should return 200 and new user', async () => {
     const user = new UserInfo()
     user.firstname = 'test'

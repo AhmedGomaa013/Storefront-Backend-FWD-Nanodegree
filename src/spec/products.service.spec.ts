@@ -1,7 +1,7 @@
 import { Product } from '../models/product'
 import { ProductsService } from '../services/product.service'
 
-describe('Products Services', () => {
+describe('Products Service Test Cases', () => {
   const productsService = new ProductsService()
   it('should create a new product', async () => {
     const product = new Product()
