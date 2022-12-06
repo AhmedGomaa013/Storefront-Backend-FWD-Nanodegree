@@ -21,6 +21,7 @@ const index = async (req: Request, res: Response): Promise<any> => {
 
     res.json(response)
   } catch (err) {
+    console.log(err)
     return res.status(400).send('Error')
   }
 }

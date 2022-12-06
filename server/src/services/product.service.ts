@@ -10,6 +10,7 @@ export class ProductsService {
       conn.release()
       return result.rows as Product[]
     } catch (err) {
+      console.log(err)
       return null
     }
   }

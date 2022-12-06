@@ -1,0 +1,18 @@
+{
+    "dev": {
+        "driver": "pg",
+        "host": "postgres.clie7e71uhy2.us-east-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "postgres",
+        "user": "postgres",
+        "password": "123456789"
+      },
+      "test": {
+        "driver": "pg",
+        "host": "postgres.clie7e71uhy2.us-east-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "postgres",
+        "user": "postgres",
+        "password": "2145610"
+      }
+}
