@@ -10,7 +10,7 @@
     "pretest": "npm run lint:fix && npm run build",
     "test": "set ENV=test&& db-migrate --env test up && jasmine && db-migrate --env test reset",
     "build": "npx tsc",
-    "prestart": "npm run build",
+    "postbuild": "cp package.json dist/package.json && cd dist && zip -r ../archive.zip ./* && cd ..",
     "start": "node dist/app.js",
     "migrate:up": "db-migrate up",
     "deploy": "chmod +x .\\bin\\deploy.sh && .\\bin\\deploy.sh"
