@@ -12,7 +12,8 @@
     "build": "npx tsc",
     "prestart": "npm run build",
     "start": "node dist/app.js",
-    "migrate:up": "db-migrate up"
+    "migrate:up": "db-migrate up",
+    "deploy": "chmod +x .\\bin\\deploy.sh && .\\bin\\deploy.sh"
   },
   "repository": {
     "type": "git",
