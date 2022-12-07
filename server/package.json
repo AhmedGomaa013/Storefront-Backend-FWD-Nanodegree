@@ -15,7 +15,7 @@
     "build": "npx tsc",
     "postbuild": "cp package.json dist/package.json && cd dist && zip -r ../archive.zip ./* && cd ..",
     
-    "start": "node .",
+    "start": "node app.js",
     "migrate:up": "db-migrate up",
     "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
   },
