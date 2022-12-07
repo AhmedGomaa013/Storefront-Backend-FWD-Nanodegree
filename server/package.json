@@ -17,7 +17,7 @@
     
     "start": "node .",
     "migrate:up": "db-migrate up",
-    "deploy": "chmod +x .\\bin\\deploy.sh && .\\bin\\deploy.sh"
+    "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
   },
   "repository": {
     "type": "git",
