@@ -2,7 +2,10 @@
   "name": "storefront-backend-fwd-nanodegree",
   "version": "1.0.0",
   "description": "storefront backend project for advanced fwd nanodegree",
-  "main": "app.ts",
+  "engines" : { 
+    "npm" : ">=8.0.0 <9.0.0",
+    "node" : ">=16.0.0 <17.0.0"
+  },
   "scripts": {
     "lint:fix": "eslint src/**/*.{ts,json} --fix",
     "lint": "eslint . --ext .ts",
@@ -11,7 +14,8 @@
     "test": "set ENV=test&& db-migrate --env test up && jasmine && db-migrate --env test reset",
     "build": "npx tsc",
     "postbuild": "cp package.json dist/package.json && cd dist && zip -r ../archive.zip ./* && cd ..",
-    "start": "node dist/app.js",
+    
+    "start": "node .",
     "migrate:up": "db-migrate up",
     "deploy": "chmod +x .\\bin\\deploy.sh && .\\bin\\deploy.sh"
   },

@@ -2,10 +2,8 @@ branch-defaults:
   default:
     environment: Storefrontbackend-env
     group_suffix: null
-environment-defaults:
-  Storefrontbackend-env:
-    branch: null
-    repository: null
+deploy:
+  artifact: archive.zip
 global:
   application_name: store_front_backend
   branch: null
@@ -16,7 +14,7 @@ global:
   instance_profile: null
   platform_name: null
   platform_version: null
-  profile: null
+  profile: default
   repository: null
   sc: null
   workspace_type: Application
