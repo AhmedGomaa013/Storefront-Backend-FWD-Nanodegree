@@ -1,11 +1,11 @@
 branch-defaults:
   default:
-    environment: Storefrontbackend-env
+    environment: New-env
     group_suffix: null
 deploy:
   artifact: archive.zip
 global:
-  application_name: store_front_backend
+  application_name: new
   branch: null
   default_ec2_keyname: null
   default_platform: Node.js 16 running on 64bit Amazon Linux 2
