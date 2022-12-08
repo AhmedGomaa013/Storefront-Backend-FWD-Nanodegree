@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import ordersRoutes from './controllers/orders.controller'
 import usersRoutes from './controllers/users.controller'
 import productsRoutes from './controllers/products.controller'
@@ -8,7 +9,7 @@ import productsRoutes from './controllers/products.controller'
 const app = express()
 dotenv.config()
 
-app.use(bodyParser.json())
+app.use(cors(), bodyParser.json())
 
 const { PORT } = process.env
 
