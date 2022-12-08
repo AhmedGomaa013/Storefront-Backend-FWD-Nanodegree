@@ -37,3 +37,11 @@ flowchart LR
    EndUser -- User goes to the website --> Static_Page_hosted_on_S3 -- Requests Data --> Storefront_APIs_Hosted_on_Elastic_Beanstalk -- Fetches data --> Amazon_RDS_hosting_postgres
 
 ```
+
+### Environment Statuses
+
+- AWS RDS. ![AWS RDS](https://github.com/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/blob/main/environment-status/rds.PNG)
+- AWS Elastic Beanstalk. ![AWS Elastic Beanstalk](https://github.com/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/blob/main/environment-status/eb.PNG)
+- AWS Bucket S3. ![AWS Bucket S3](https://github.com/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/blob/main/environment-status/s3.PNG)
+- CircleCi with Github. ![CircleCi with Github](https://github.com/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/blob/main/environment-status/circleci-github.PNG)
+- Environment Variables Configurations. ![Environment Variables Configurations](https://github.com/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/blob/main/environment-status/config-env-variables.PNG)
