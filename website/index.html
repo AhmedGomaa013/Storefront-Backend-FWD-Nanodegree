@@ -69,8 +69,10 @@
                 .then((response) => response.json())
                 .then((products) => {
                     document.getElementById("loading").style.display = "none";
+                    console.log(products);
                     const productsElement = document.getElementById("products");
-                    products.forEach((product) => {
+                    debugger;
+                    products.data.forEach((product) => {
                         const productElement = document.createElement("div");
                         productElement.classList.add("product");
                         productElement.innerHTML = `
