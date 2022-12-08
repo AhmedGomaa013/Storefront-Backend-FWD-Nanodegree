@@ -71,6 +71,7 @@
                 .then((products) => {
                     document.getElementById("loading").style.display = "none";
                     document.getElementById("label").style.display = "block";
+                    const productsElement = document.getElementById("products");
                     products.data.forEach((product) => {
                         const productElement = document.createElement("div");
                         productElement.classList.add("product");
