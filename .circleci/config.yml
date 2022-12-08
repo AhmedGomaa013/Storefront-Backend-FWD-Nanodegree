@@ -13,18 +13,23 @@ jobs:
       - aws-cli/setup
       - eb/setup
       - checkout
+      # starting installing server dependencies ...
       - run:
           name: Install server dependencies
           command: npm run install:server
+      # building back-end side ...
       - run:
           name: Build server
           command: npm run build:server
+      # building front-end side ...
       - run:
           name: Build website
           command: npm run build:website
+      # deploying back-end side to elastic beanstalk
       - run:
           name: Deploy server to eb
           command: npm run deploy:server
+      # deploying front-end side to bucket s3
       - run:
           name: Deploy website to s3
           command: npm run deploy:website
