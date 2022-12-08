@@ -3,7 +3,7 @@
         "start": "http-server -p 8080 www/",
         "build": "cp index.html www/index.html",
         "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh",
-        "test": ""
+        "test": "echo testing finished"
     },
     "dependencies": {
         "http-server": "^14.1.1"

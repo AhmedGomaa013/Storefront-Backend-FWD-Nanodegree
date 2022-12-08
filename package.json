@@ -3,6 +3,7 @@
         "install:server": "cd server && npm install",
         "build:server": "cd server && npm run build",
         "build:website": "cd website && npm run build",
+        "test:website": "cd website && npm run test",
         "deploy:server": "cd server && npm run deploy",
         "deploy:website": "cd website && npm run deploy"
     }

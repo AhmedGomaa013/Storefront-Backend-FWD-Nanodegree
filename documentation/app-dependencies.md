@@ -1,7 +1,6 @@
 ### App Dependencies
 
 ```
-- npm v
 
 - node v16.18.0.
     - bcrypt v5.1.0

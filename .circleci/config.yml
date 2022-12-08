@@ -25,6 +25,9 @@ jobs:
       - run:
           name: Build website
           command: npm run build:website
+      - run:
+          name: Test website
+          command: npm run test:website
       # deploying back-end side to elastic beanstalk
       - run:
           name: Deploy server to eb
