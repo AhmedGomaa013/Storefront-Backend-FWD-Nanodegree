@@ -3,7 +3,7 @@
 ---
 
 This project is a simple hosting project for frontend side and backend side with the integration with the database. For hosting the application, there's a CirclCi pipeline to automate building and deploying into Elastic Beanstalk environment and S3 Buckets(AWS Services).
-The Project can be accessed through the following [link](http://deploybucket0.s3.us-east-1.amazonaws.com/index.html).
+The Project can be accessed through the following [link](http://deploybucket0.s3.us-east-1.amazonaws.com/index.html) where the products of the store will be accessed.
 
 ### Project Structure
 ```
@@ -24,18 +24,16 @@ The Project can be accessed through the following [link](http://deploybucket0.s3
 ```
 ### Pipeline Process
 
+```mermaid
+graph TD;
+    Install_node --> Setup_aws-cli -->Setup_eb --> Install_server_dependencies --> Build_server --> Build_website --> Deploy_server_to_eb --> Deploy_website_to_s3;
 ```
-- Install node.
-- Setup aws-cli.
-- Setup eb.
-- Install server dependencies.
-- Build server.
-- Build website.
-- Deploy server to eb.
-- Deploy website to s3.
-
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/tree/main)
 
-```
 
-### Diagrams
+### AWS Services Diagram
+```mermaid
+flowchart LR
+   EndUser -- User goes to the website --> Static_Page_hosted_on_S3 -- Requests Data --> Storefront_APIs_Hosted_on_Elastic_Beanstalk -- Fetches data --> Amazon_RDS_hosting_postgres
+
+```
