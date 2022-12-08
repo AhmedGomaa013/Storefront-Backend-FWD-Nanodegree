@@ -16,7 +16,9 @@ const { PORT } = process.env
 productsRoutes(app)
 usersRoutes(app)
 ordersRoutes(app)
-
+app.get('/', (req: express.Request, res: express.Response) => {
+  return res.send('')
+})
 app.listen(PORT, () => {
   console.log(`Server started on localhost:${PORT as string}`)
 })
