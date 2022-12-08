@@ -56,6 +56,7 @@
         <h1>Store Front App</h1>
         <div class="products" id="products">
             <p id="loading">Loading..</p>
+            <h2 id="label" style="display: none;">Our Products</h2>
         </div>
     </div>
     <script type="text/javascript">
@@ -69,9 +70,7 @@
                 .then((response) => response.json())
                 .then((products) => {
                     document.getElementById("loading").style.display = "none";
-                    console.log(products);
-                    const productsElement = document.getElementById("products");
-                    debugger;
+                    document.getElementById("label").style.display = "block";
                     products.data.forEach((product) => {
                         const productElement = document.createElement("div");
                         productElement.classList.add("product");
