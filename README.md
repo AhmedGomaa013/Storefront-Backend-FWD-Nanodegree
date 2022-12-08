@@ -10,32 +10,7 @@ The Project can be accessed through the following [link](http://deploybucket0.s3
 - .circleci: contains the pipeline process.
 - server: contains the server side code.
 - website: contains the client side code.
-```
-### App Dependencies
-
-```
-- Node v16.18.0.
-
-- AWS CLI v2.
-
-- A RDS database running Postgres.
-
-- A S3 bucket for hosting frontend side.
-```
-### Pipeline Process
-
-```mermaid
-graph TD;
-    Install_node --> Setup_aws-cli -->Setup_eb --> Install_server_dependencies --> Build_server --> Build_website --> Deploy_server_to_eb --> Deploy_website_to_s3;
-```
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/tree/main)
-
-
-### AWS Services Diagram
-```mermaid
-flowchart LR
-   EndUser -- User goes to the website --> Static_Page_hosted_on_S3 -- Requests Data --> Storefront_APIs_Hosted_on_Elastic_Beanstalk -- Fetches data --> Amazon_RDS_hosting_postgres
-
+- envirnment-status: contains images for envirnment status for different aws services.
 ```
 
 ### Environment Statuses
