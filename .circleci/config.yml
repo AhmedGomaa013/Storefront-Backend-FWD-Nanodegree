@@ -21,10 +21,15 @@ jobs:
       - run:
           name: Build server
           command: npm run build:server
+      # testing back-end side ...
+      - run:
+          name: Test server
+          command: npm run test:server
       # building front-end side ...
       - run:
           name: Build website
           command: npm run build:website
+      # testing front-end side ...
       - run:
           name: Test website
           command: npm run test:website
