@@ -1,1 +1,43 @@
-<mxfile host="app.diagrams.net" modified="2022-12-09T12:09:45.407Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" version="20.6.2" etag="oNF3vkWOkWjb-LtOsDGI" type="github"><diagram id="y3Pn6s2qRplnXIOw63Ob">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-12-09T22:57:05.272Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" version="20.6.2" etag="1orLlpWpRX9DzlSQwy0Q" type="github">
+  <diagram id="WRSzFU1umD8ebB-I_jPy" name="Page-1">
+    <mxGraphModel dx="1712" dy="1582" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="J0koz-FrI5P8eJoFQk1v-10" value="&lt;h1&gt;AWS&lt;/h1&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="-180" y="-460" width="840" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="J0koz-FrI5P8eJoFQk1v-12" value="Postgres Database hosted on AWS RDS" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;fontStyle=1;fontFamily=Times New Roman;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="-260" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="J0koz-FrI5P8eJoFQk1v-13" value="Front End Application &lt;br&gt;hosted on AWS Bucket S3" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.bucket;fillColor=#E05243;gradientColor=none;horizontal=1;labelPosition=center;fontStyle=1;fontFamily=Times New Roman;" vertex="1" parent="1">
+          <mxGeometry x="450" y="-270" width="95" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="J0koz-FrI5P8eJoFQk1v-14" value="Back End Application&lt;br&gt;&lt;div style=&quot;&quot;&gt;Hosted on AWS EB&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/spring-30/30/Sprout-128.png;fontFamily=Times New Roman;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="210" y="-270" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="J0koz-FrI5P8eJoFQk1v-16" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;End User&lt;/span&gt;&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="-250" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="J0koz-FrI5P8eJoFQk1v-20" value="User opens the website" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;elbow=vertical;startArrow=block;startFill=1;strokeColor=#545B64;rounded=0;fontFamily=Times New Roman;exitX=0.947;exitY=0.667;exitDx=0;exitDy=0;exitPerimeter=0;fontStyle=0;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="J0koz-FrI5P8eJoFQk1v-13">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="610" y="-210" as="sourcePoint" />
+            <mxPoint x="710" y="-210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J0koz-FrI5P8eJoFQk1v-21" value="FrontEnd fetches data from APIs" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;elbow=vertical;startArrow=block;startFill=1;strokeColor=#545B64;rounded=0;fontFamily=Times New Roman;exitX=1.011;exitY=0.667;exitDx=0;exitDy=0;exitPerimeter=0;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="J0koz-FrI5P8eJoFQk1v-14">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="360" y="-210" as="sourcePoint" />
+            <mxPoint x="460" y="-210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J0koz-FrI5P8eJoFQk1v-22" value="BackEnd gets data from DB" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;elbow=vertical;startArrow=block;startFill=1;strokeColor=#545B64;rounded=0;fontFamily=Times New Roman;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;exitX=1.02;exitY=0.688;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="J0koz-FrI5P8eJoFQk1v-12">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="90" y="-205.5" as="sourcePoint" />
+            <mxPoint x="200" y="-205" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
