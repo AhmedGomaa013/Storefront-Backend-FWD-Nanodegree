@@ -11,3 +11,7 @@
 ```mermaid
 flowchart LR
    EndUser -- User goes to the website --> Static_Page_hosted_on_S3 -- Requests Data --> Storefront_APIs_Hosted_on_Elastic_Beanstalk -- Fetches data --> Amazon_RDS_hosting_postgres
+   ```
+   
+   ![Infrastructure Diagram](https://github.com/AhmedGomaa013/Storefront-Backend-FWD-Nanodegree/blob/main/environment-status/infrastructure-diagram.png)
+   
