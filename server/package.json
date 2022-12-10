@@ -10,7 +10,7 @@
     "lint:fix": "eslint src/**/*.{ts,json} --fix",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --config .prettierrc --write ./**/*.ts",
-    "pretest": "npm run lint:fix && npm run build",
+    "pretest": "npm run lint:fix",
     "test": "echo server testing finished",
     "build": "npx tsc",
     "postbuild": "cp package.json dist/package.json && cd dist && zip -r ../archive.zip ./* && cd ..",
